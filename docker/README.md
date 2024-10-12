@@ -7,3 +7,9 @@ To see which builder we are using to build images.
 docker buildx ls
 ```
 
+To create a multi-arch builder
+
+```bash
+docker buildx create --driver-opt network=host --use --name multi-arch
+```
+
