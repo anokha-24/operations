@@ -1,3 +1,5 @@
+Used the ansible playbook in this [repository](https://github.com/k3s-io/k3s-ansible) to setup k3s in all Respberry pis.
+
 Get node list.
  ```bash
 kubectl get nodes
@@ -31,6 +33,12 @@ kubectl delete pod <POD_NAME>
 View pod logs.
 ```bash
 kubectl logs <POD_NAME>
+```
+
+### View utilization
+```bash
+kubectl top pods
+kubectl top pod <POD_NAME>
 ```
 
 ### Execute code inside container
