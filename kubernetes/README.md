@@ -15,6 +15,16 @@ Create and Run a pod.
 ```bash
 kubectl run <POD_NAME> --image=<IMAGE_NAME> --port=<PORT>
 ```
+To expose pod to be accessible,
+```bash
+kubectl expose pod <POD_NAME> --type=NodePort --port=<PORT> --target-port=<PORT>
+```
+This creates a service in the pod's name. <br>
+NodePort randomly assigns a port from 30000 to 32767. <br>
+To see IP and port of pod
+```bash
+kubectl get service <SERVICE_NAME>
+```
 List pods
 ```bash
 kubectl get pods
@@ -48,7 +58,7 @@ kubectl exec -it <POD_NAME> -- <COMMAND>
 
 
 ## Kube services 
-Used to give static IPs for pods.
+Used to give static IPs for pods. (Also acts as load balancer)
 ### Internal Service
 Doesn't expose pods for external access. Acess only within Kube cluster.
 ### External Service
@@ -59,4 +69,21 @@ Kinda DNS for pods.
 
 ## ConfigMap and Secrets
 To manage env variables and secrets in the cluster.
+
+## Volumes
+Attach directory to kubernetes cluster
+
+> [!IMPORTANT]  
+> Use `Deployments` for stateless apps and `StatefulSet` for statefull apps. 
+
+## Components of Kube config file
+Api Version, kind (service/deployment)
+1. **Metadata**
+2. **Specification**
+3. **Status** : Automatically generated and added by kubernetes.
+
+## etcd
+Process in master node, that holds status of all components at any time.
+
+
 
