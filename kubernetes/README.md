@@ -46,3 +46,17 @@ kubectl top pod <POD_NAME>
 kubectl exec -it <POD_NAME> -- <COMMAND>
 ```
 
+
+## Kube services 
+Used to give static IPs for pods.
+### Internal Service
+Doesn't expose pods for external access. Acess only within Kube cluster.
+### External Service
+Expose pods for external access in the network.
+
+## Kube Ingress
+Kinda DNS for pods.
+
+## ConfigMap and Secrets
+To manage env variables and secrets in the cluster.
+
