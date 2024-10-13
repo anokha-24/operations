@@ -56,6 +56,19 @@ kubectl top pod <POD_NAME>
 kubectl exec -it <POD_NAME> -- <COMMAND>
 ```
 
+> [!IMPORTANT]  
+> Use `Deployments` for stateless apps and `StatefulSet` for statefull apps. 
+
+## Components of Kube config file
+Api Version, kind (service/deployment)
+1. **Metadata**
+2. **Specification**
+3. **Status** : Automatically generated and added by kubernetes.
+
+## Deployments
+The container is specified in a `template` in the `.yaml` file.
+The template has it's own `metadata` and `spec`. <br>
+Give labels to pods always and In deployement match labels. 
 
 ## Kube services 
 Used to give static IPs for pods. (Also acts as load balancer)
@@ -70,17 +83,15 @@ Kinda DNS for pods.
 ## ConfigMap and Secrets
 To manage env variables and secrets in the cluster.
 
+> [!IMPORTANT]  
+> Any data entered in Secrets should be in base64 encoded format. <br>
+> Use this command to encode. <br>
+> ```bash
+>  echo —n <VALUE_TO_ENCODE> | base64
+> ```
+
 ## Volumes
 Attach directory to kubernetes cluster
-
-> [!IMPORTANT]  
-> Use `Deployments` for stateless apps and `StatefulSet` for statefull apps. 
-
-## Components of Kube config file
-Api Version, kind (service/deployment)
-1. **Metadata**
-2. **Specification**
-3. **Status** : Automatically generated and added by kubernetes.
 
 ## etcd
 Process in master node, that holds status of all components at any time.
