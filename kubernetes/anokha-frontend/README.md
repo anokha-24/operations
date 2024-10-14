@@ -11,6 +11,12 @@ Add the base 64 encoded values of
 - payu-key-test,
 - payu-key-prod.
 
+> [!TIP]  
+> Use this linux command to encode data in base64 format. <br>
+> ```bash
+>  echo —n <VALUE_TO_ENCODE> | base64
+> ```
+
 Run
 ```bash
 kubectl apply -f anokha-frontend-secret.yaml
