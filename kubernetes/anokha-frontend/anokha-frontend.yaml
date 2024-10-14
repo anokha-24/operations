@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      imagePullSecrets:
+      - name: ghcr-secret
+      containers:
+      - name: anokha-frontend
+        image: ghcr.io/supersecurehuman/anokha-2024:prod2
+        ports:
+        - containerPort: 3002
+        env:
+        - name: NEXT_PUBLIC_IS_PRODUCTION
+          valueFrom:
+            secretKeyRef:
+              name: frontend-secret
+              key: is-production
+        - name: NEXT_PUBLIC_PAY_U_KEY_TEST
+          valueFrom:
+            secretKeyRef:
+              name: frontend-secret
+              key: payu-key-test
+        - name: NEXT_PUBLIC_PAY_U_KEY_PROD
+          valueFrom:
+            secretKeyRef:
+              name: frontend-secret
+              key: payu-key-prod
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 3002
+      targetPort: 3002
+      nodePort: 30000
