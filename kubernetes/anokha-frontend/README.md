@@ -14,7 +14,11 @@ Add the base 64 encoded values of
 > [!TIP]  
 > Use this linux command to encode data in base64 format. <br>
 > ```bash
->  echo —n <VALUE_TO_ENCODE> | base64
+>  echo <VALUE_TO_ENCODE> | base64
+> ```
+> Use this to check if the encoded value is right. <br>
+> ```bash
+>  echo <VALUE_TO_DECODE> | base64 --decode
 > ```
 
 Run
