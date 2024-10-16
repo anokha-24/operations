@@ -87,7 +87,11 @@ To manage env variables and secrets in the cluster.
 > Any data entered in Secrets should be in base64 encoded format. <br>
 > Use this command to encode. <br>
 > ```bash
->  echo —n <VALUE_TO_ENCODE> | base64
+>  echo <VALUE_TO_ENCODE> | base64
+> ```
+> Use this to check if the encoded value is right. <br>
+> ```bash
+>  echo <VALUE_TO_DECODE> | base64 --decode
 > ```
 
 ## Volumes
