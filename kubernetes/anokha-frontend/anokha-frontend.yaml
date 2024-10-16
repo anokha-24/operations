@@ -19,6 +19,7 @@ spec:
       containers:
       - name: anokha-frontend
         image: ghcr.io/supersecurehuman/anokha-2024:prod2
+        imagePullPolicy: Always
         ports:
         - containerPort: 3002
         env:
