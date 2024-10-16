@@ -100,5 +100,15 @@ Attach directory to kubernetes cluster
 ## etcd
 Process in master node, that holds status of all components at any time.
 
+## Scaling deployments manually
+To scale a deployment manually use the following command. 
+```bash
+kubectl scale deployment <DEPLOYMENT_NAMES> --replicas=<NO_OF_REPLICAS>
+```
+<br>
+<div align="center">
+ <img src="https://github.com/user-attachments/assets/9d3d98bb-0b8b-4ff9-84bf-0a3b3b31d115" width="800px"/>
+</div>
+
 
 
